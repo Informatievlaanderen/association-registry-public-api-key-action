@@ -1,4 +1,4 @@
-# gawr api key action - update
+# association-registry api key action - update
 
 This action updates a client api key 
 
@@ -12,9 +12,9 @@ on:
        description: 'Api Key'     
        required: true
 
-      grant-access-road-registry:
+      grant-access-association-registry:
         type: boolean
-        description: 'Grant road-registry access'
+        description: 'Grant association-registry access'
         required: true 
          
       grant-access-sync:
@@ -34,10 +34,7 @@ on:
         type: choice
         description: 'Plan'
         options:
-        - anon
-        - abuse
         - standard
-        - unlimited
         default: standard
 
       apply-env-tst:
@@ -56,11 +53,11 @@ on:
         required: true
 
 jobs:
-  gawr:
+  association-registry:
     runs-on: ubuntu-latest
     steps:
     - name: update client apikey
-      uses: informatievlaanderen/gawr-api-key-action/action-update@main
+      uses: informatievlaanderen/association-registry-public-api-key-action/action-update@main
       with:
           apikey: ${{github.event.inputs.api-key}}
           client:  ${{ github.event.inputs.client }}
@@ -68,7 +65,7 @@ jobs:
           plan:  ${{ github.event.inputs.plan }}
           
           access-sync:  ${{ github.event.inputs.grant-access-sync }}
-          access-road-registry:  ${{ github.event.inputs.grant-access-road-registry }}
+          access-association-registry:  ${{ github.event.inputs.grant-access-association-registry }}
           
           env-tst:  ${{ github.event.inputs.apply-env-tst }}
           env-stg:  ${{ github.event.inputs.apply-env-stg }}
@@ -89,23 +86,23 @@ jobs:
 
 ### Inputs
 
-|Argument| Description | Default | Required |
-|--------|-------------|---------|----------|
-| api-key | The client api key | - | Yes |
-| client | The client name | - | Yes |
-| email | The client email | - | Yes |
-| plan | Plan type `anon`, `abuse`, `standard`, `unlimited` | `anon` | Yes |
-| access-sync | Grant sync access (`true` / `false`) | `false` | Yes |
-| access-road-registry | Grant road-registry access (`true` / `false`) | `false` | Yes |
-| env-tst | Apply in test env. (`true` / `false`) | `false` | Yes |
-| env-stg | Apply in staging env. (`true` / `false`) | `false` | Yes |
-| env-prd | Apply in production env. (`true` / `false`) | `false` | Yes |
-| aws-tst-access-key-id | AWS access key id test env | - | Yes  |
-| aws-stg-access-key-id | AWS access key id staging env | - | Yes  |
-| aws-prd-access-key-id | AWS access key id production env | - | Yes  |
-| aws-tst-secret-access-key | AWS secret access key test env | - | Yes  |
-| aws-stg-secret-access-key | AWS secret access key staging env | - | Yes  |
-| aws-prd-secret-access-key | AWS secret access key production env | - | Yes  |
+|Argument| Description | Default     | Required |
+|--------|-------------|-------------|----------|
+| api-key | The client api key | -           | Yes |
+| client | The client name | -           | Yes |
+| email | The client email | -           | Yes |
+| plan | Plan type `standard` | -           | Yes |
+| access-sync | Grant sync access (`true` / `false`) | `false`     | Yes |
+| access-association-registry | Grant association-registry access (`true` / `false`) | `false`     | Yes |
+| env-tst | Apply in test env. (`true` / `false`) | `false`     | Yes |
+| env-stg | Apply in staging env. (`true` / `false`) | `false`     | Yes |
+| env-prd | Apply in production env. (`true` / `false`) | `false`     | Yes |
+| aws-tst-access-key-id | AWS access key id test env | -           | Yes  |
+| aws-stg-access-key-id | AWS access key id staging env | -           | Yes  |
+| aws-prd-access-key-id | AWS access key id production env | -           | Yes  |
+| aws-tst-secret-access-key | AWS secret access key test env | -           | Yes  |
+| aws-stg-secret-access-key | AWS secret access key staging env | -           | Yes  |
+| aws-prd-secret-access-key | AWS secret access key production env | -           | Yes  |
 | aws-tst-region-name | AWS region name test env | `eu-west-1` | No |
 | aws-stg-region-name | AWS region name test env | `eu-west-1` | No |
 | aws-prd-region-name | AWS region name test env | `eu-west-1` | No |

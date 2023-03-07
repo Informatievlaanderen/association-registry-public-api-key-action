@@ -1,4 +1,4 @@
-# gawr api key action - add
+# association registry api key action - add
 
 This action generates a new client api key 
 
@@ -8,9 +8,9 @@ name: Add new client apikey
 on:
   workflow_dispatch:
     inputs:
-      grant-access-road-registry:
+      grant-access-association-registry:
         type: boolean
-        description: 'Grant road-registry access'
+        description: 'Grant association-registry access'
         required: true 
          
       grant-access-sync:
@@ -30,10 +30,7 @@ on:
         type: choice
         description: 'Plan'
         options:
-        - anon
-        - abuse
         - standard
-        - unlimited
         default: standard
 
       apply-env-tst:
@@ -52,18 +49,18 @@ on:
         required: true
 
 jobs:
-  gawr:
+  association-registry:
     runs-on: ubuntu-latest
     steps:
     - name: Add new client apikey
-      uses: informatievlaanderen/gawr-api-key-action/action-add@main
+      uses: informatievlaanderen/association-registry-public-api-key-action/action-add@main
       with:
           client:  ${{ github.event.inputs.client }}
           email: ${{ github.event.inputs.email }}
           plan:  ${{ github.event.inputs.plan }}
           
           access-sync:  ${{ github.event.inputs.grant-access-sync }}
-          access-road-registry:  ${{ github.event.inputs.grant-access-road-registry }}
+          access-association-registry:  ${{ github.event.inputs.grant-access-association-registry }}
           
           env-tst:  ${{ github.event.inputs.apply-env-tst }}
           env-stg:  ${{ github.event.inputs.apply-env-stg }}
@@ -88,9 +85,9 @@ jobs:
 |--------|-------------|---------|----------|
 | client | The client name | - | Yes |
 | email | The client email | - | Yes |
-| plan | Plan type `anon`, `abuse`, `standard`, `unlimited` | `anon` | Yes |
+| plan | Plan type `standard` | `standard` | Yes |
 | access-sync | Grant sync access (`true` / `false`) | `false` | Yes |
-| access-road-registry | Grant road-registry access (`true` / `false`) | `false` | Yes |
+| access-association-registry | Grant association-registry access (`true` / `false`) | `false` | Yes |
 | env-tst | Apply in test env. (`true` / `false`) | `false` | Yes |
 | env-stg | Apply in staging env. (`true` / `false`) | `false` | Yes |
 | env-prd | Apply in production env. (`true` / `false`) | `false` | Yes |

@@ -9,10 +9,10 @@ parser.add_argument('-k','--apikey', help='apikey', required=True)
 parser.add_argument('-c','--client', help='client name', required=True)
 parser.add_argument('-e','--email', help='email', required=True)
 parser.add_argument('--revoke-access', help='revoked', required=False, default='false')
-parser.add_argument('-p','--plan', help='plan options are ["anon", "abuse", "standard", "unlimited"]', required=True, default="standard")
+parser.add_argument('-p','--plan', help='plan options are ["standard"]', required=True, default="standard")
 
 parser.add_argument('--access-sync', help='["true", "false"] default: false', required=False, default='false')
-parser.add_argument('--access-road-registry', help='["true", "false"] default: false', required=False, default='false')
+parser.add_argument('--access-association-registry', help='["true", "false"] default: false', required=False, default='false')
 
 parser.add_argument('--env-tst', help='["true", "false"] default: false', required=False, default='false')
 parser.add_argument('--env-stg', help='["true", "false"] default: false', required=False, default='false')
@@ -35,31 +35,17 @@ parser.add_argument('--access-tickets', help='["true", "false"] default: true', 
 args = parser.parse_args()
 
 usage_plan_ids = {
-    "anon": {
-        "tst":"l80flj",
-        "stg":"dyzrte",
-        "prd":"2wb5cd",
-    },
-    "abuse": {
-        "tst":"jgivsn",
-        "stg":"ccfy0v",
-        "prd":"9nrj1z",
-    },
     "standard": {
         "tst":"yhlc48",
         "stg":"oh8xgc",
         "prd":"m8vqe3",
-    },
-    "unlimited": {
-        "tst":"6rhww4",
-        "stg":"5fbb32",
-        "prd":"r5patr",
     }
 }
 
 def start_session(aws_access_key_id, aws_secret_access_key, region_name):
     return boto3.Session(aws_access_key_id, aws_secret_access_key, region_name=region_name)
 
+#TODO check db table
 def get_db_table(session):
     return session.resource('dynamodb').Table('basisregisters-api-gate-keys')
 
@@ -79,7 +65,7 @@ def get_client_attribute_updates(env):
         },
         "WrAccess": {
             "Action": "PUT", 
-            "Value": args.access_road_registry == 'true'
+            "Value": args.access_association_registry == 'true'
         },
         "Revoked": {
             "Action": "PUT", 

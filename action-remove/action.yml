@@ -1,5 +1,5 @@
-name: gawr-remove-apikey-action
-description: GAWR ApiKey Management Tool
+name: association-registry-remove-apikey-action
+description: Association Registry ApiKey Management Tool
 author: Digitaal Vlaanderen
 inputs:
   apikey:
@@ -59,7 +59,7 @@ inputs:
 
 runs:
   using: 'docker'
-  image: 'docker://ghcr.io/informatievlaanderen/gawr-api-key-action:1.0.6-remove'
+  image: 'docker://ghcr.io/informatievlaanderen/association-registry-public-api-key-action:1.0.6-remove'
   args:
     - ${{ inputs.apikey }}
     - ${{ inputs.env-tst }}

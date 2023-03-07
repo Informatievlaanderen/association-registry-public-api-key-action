@@ -1,5 +1,5 @@
-name: gawr-update-apikey-action
-description: GAWR ApiKey Management Tool
+name: association-registry-update-apikey-action
+description: Association Registry Public ApiKey Management Tool
 author: Digitaal Vlaanderen
 inputs:
   apikey:
@@ -15,15 +15,15 @@ inputs:
     required: true
   
   plan:
-    description: 'options ["anon", "abuse", "standard", "unlimited"]'
+    description: 'options ["standard"]'
     required: true
 
   access-sync:
     description: 'Grant sync access'
     required: true
 
-  access-road-registry:
-    description: 'Grant road-registry access'
+  access-association-registry:
+    description: 'Grant association-registry access'
     required: true
 
   revoke-access:
@@ -83,14 +83,14 @@ inputs:
   
 runs:
   using: 'docker'
-  image: 'docker://ghcr.io/informatievlaanderen/gawr-api-key-action:1.0.6-update'
+  image: 'docker://ghcr.io/informatievlaanderen/association-registry-public-api-key-action:1.0.6-update'
   args:
     - ${{ inputs.apikey }}
     - ${{ inputs.client }}
     - ${{ inputs.email }}
     - ${{ inputs.plan }}
     - ${{ inputs.access-sync }}
-    - ${{ inputs.access-road-registry }}
+    - ${{ inputs.access-association-registry }}
     - ${{ inputs.env-tst }}
     - ${{ inputs.env-stg }}
     - ${{ inputs.env-prd }}

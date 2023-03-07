@@ -1,4 +1,4 @@
-# gawr api key action - remove
+# association-registry api key action - remove
 
 This action removes a client api key 
 
@@ -28,11 +28,11 @@ on:
         required: true
 
 jobs:
-  gawr:
+  association-registry:
     runs-on: ubuntu-latest
     steps:
     - name: remove client apikey
-      uses: informatievlaanderen/gawr-api-key-action/action-remove@main
+      uses: informatievlaanderen/association-registry-public-api-key-action/action-remove@main
       with:
           apikey: ${{github.event.inputs.api-key}}
 
