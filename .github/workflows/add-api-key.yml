@@ -34,8 +34,8 @@ on:
         type: choice
         description: 'Plan'
         options:
-        - standard
-        default: standard
+        - unlimited
+        default: unlimited
 
       apply-env-tst:
         type: boolean
