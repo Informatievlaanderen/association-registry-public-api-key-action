@@ -57,7 +57,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Add new client apikey
-      uses: informatievlaanderen/association-registry-public-api-key-action/action-add@main
+      uses: informatievlaanderen/gawr-api-key-action/action-add@main
       with:
           client:  ${{ github.event.inputs.client }}
           email: ${{ github.event.inputs.email }}
