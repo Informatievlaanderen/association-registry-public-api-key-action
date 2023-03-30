@@ -42,7 +42,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Add new client apikey
-      uses: docker://ghcr.io/informatievlaanderen/association-registry-public-api-key-action:1.0.7-add
+      uses: ./action-add/action.yml
       with:
           token: ${{ secrets.PAT }}
           client:  ${{ github.event.inputs.client }}
