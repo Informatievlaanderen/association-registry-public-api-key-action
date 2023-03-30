@@ -2,21 +2,6 @@ name: Add new client apikey
 on:
   workflow_dispatch:
     inputs:
-      grant-access-association-registry:
-        type: boolean
-        description: 'Grant association-registry access'
-        required: true 
-
-      grant-access-sync:
-        type: boolean
-        description: 'Grant sync access'
-        required: true
-
-      grant-access-tickets:
-        type: boolean
-        description: 'tickets'
-        required: true
-
       revoke-access:
         type: boolean
         description: 'Revoke access'
@@ -57,15 +42,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Add new client apikey
-      uses: informatievlaanderen/gawr-api-key-action/action-add@main
+      uses: ./action-add@main
       with:
           client:  ${{ github.event.inputs.client }}
           email: ${{ github.event.inputs.email }}
           plan:  ${{ github.event.inputs.plan }}
-          
-          access-sync:  ${{ github.event.inputs.grant-access-sync }}
-          access-association-registry:  ${{ github.event.inputs.grant-access-association-registry }}
-          
+
           env-tst:  ${{ github.event.inputs.apply-env-tst }}
           env-stg:  ${{ github.event.inputs.apply-env-stg }}
           env-prd:  ${{ github.event.inputs.apply-env-prd }}
@@ -84,4 +66,3 @@ jobs:
 
           revoke-access: ${{ github.event.inputs.revoke-access }}
           access-tickets: ${{ github.event.inputs.grant-access-tickets }}
-
