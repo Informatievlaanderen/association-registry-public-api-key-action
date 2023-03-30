@@ -46,7 +46,6 @@ jobs:
       - name: Add new client apikey
         uses: ./action-add
         with:
-          token: ${{ secrets.PAT }}
           client: ${{ github.event.inputs.client }}
           email: ${{ github.event.inputs.email }}
           plan: ${{ github.event.inputs.plan }}
@@ -68,4 +67,3 @@ jobs:
           aws-prd-region-name: eu-west-1
 
           revoke-access: ${{ github.event.inputs.revoke-access }}
-          access-tickets: ${{ github.event.inputs.grant-access-tickets }}
