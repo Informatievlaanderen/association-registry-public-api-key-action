@@ -41,13 +41,10 @@ jobs:
   association-registry:
     runs-on: ubuntu-latest
     steps:
-    - name: Login to GitHub Container Registry
-      uses: docker/login-action@v2
-      with:
-        registry: ghcr.io
     - name: Add new client apikey
       uses: informatievlaanderen/association-registry-public-api-key-action/action-add@main
       with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
           client:  ${{ github.event.inputs.client }}
           email: ${{ github.event.inputs.email }}
           plan:  ${{ github.event.inputs.plan }}
