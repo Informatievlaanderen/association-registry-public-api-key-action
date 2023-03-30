@@ -44,7 +44,7 @@ jobs:
     - name: Add new client apikey
       uses: docker://ghcr.io/informatievlaanderen/association-registry-public-api-key-action:1.0.6-add
       with:
-          repo-token: ${{ secrets.PAT }}
+          token: ${{ secrets.PAT }}
           client:  ${{ github.event.inputs.client }}
           email: ${{ github.event.inputs.email }}
           plan:  ${{ github.event.inputs.plan }}
