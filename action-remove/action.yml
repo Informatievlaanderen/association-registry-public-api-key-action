@@ -59,7 +59,7 @@ inputs:
 
 runs:
   using: 'docker'
-  image: 'docker://ghcr.io/informatievlaanderen/association-registry-public-api-key-action:1.0.6-remove'
+  image: 'docker://ghcr.io/informatievlaanderen/association-registry-public-api-key-action:1.0.7-remove'
   args:
     - ${{ inputs.apikey }}
     - ${{ inputs.env-tst }}
