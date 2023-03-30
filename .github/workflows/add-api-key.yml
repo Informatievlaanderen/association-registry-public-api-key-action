@@ -12,7 +12,7 @@ on:
         required: true
         
       email:
-        description: 'Email'     
+        description: 'Email'
         required: true
 
       plan:
