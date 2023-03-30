@@ -42,7 +42,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Add new client apikey
-      uses: informatievlaanderen/association-registry-public-api-key-action/action-add@main
+      uses: ghcr.io/informatievlaanderen/association-registry-public-api-key-action:1.0.6-add
       with:
           repo-token: ${{ secrets.PAT }}
           client:  ${{ github.event.inputs.client }}
