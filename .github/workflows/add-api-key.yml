@@ -42,7 +42,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Add new client apikey
-      uses: ./action-add/action.yml
+      uses: ./action-add
       with:
           token: ${{ secrets.PAT }}
           client:  ${{ github.event.inputs.client }}
