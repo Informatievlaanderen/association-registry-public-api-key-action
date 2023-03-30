@@ -40,9 +40,8 @@ def start_session(aws_access_key_id, aws_secret_access_key, region_name):
     return boto3.Session(aws_access_key_id, aws_secret_access_key, region_name=region_name)
 
 
-#TODO check table naam
 def get_db_table(session):
-    return session.resource('dynamodb').Table('basisregisters-api-gate-keys')
+    return session.resource('dynamodb').Table('basisregisters-association-api-gate-keys')
 
 def get_client_api_key(apikey, env):
     client_api_key = {
