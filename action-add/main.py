@@ -30,7 +30,7 @@ args = parser.parse_args()
 
 usage_plan_ids = {
     "unlimited": {
-        "tst":"v1a1xx",
+        "tst":"6lxt5edym3",
         "stg":"",
         "prd":"",
     }
