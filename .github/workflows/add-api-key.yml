@@ -8,9 +8,9 @@ on:
         required: true
 
       client:
-        description: 'ClientName'     
+        description: 'ClientName'
         required: true
-        
+
       email:
         description: 'Email'
         required: true
@@ -19,7 +19,7 @@ on:
         type: choice
         description: 'Plan'
         options:
-        - unlimited
+          - unlimited
         default: unlimited
 
       apply-env-tst:
@@ -31,7 +31,7 @@ on:
         type: boolean
         description: 'Staging'
         required: true
-        
+
       apply-env-prd:
         type: boolean
         description: 'Production'
@@ -41,17 +41,19 @@ jobs:
   association-registry:
     runs-on: ubuntu-latest
     steps:
-    - name: Add new client apikey
-      uses: ./action-add
-      with:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+      - name: Add new client apikey
+        uses: ./action-add
+        with:
           token: ${{ secrets.PAT }}
-          client:  ${{ github.event.inputs.client }}
+          client: ${{ github.event.inputs.client }}
           email: ${{ github.event.inputs.email }}
-          plan:  ${{ github.event.inputs.plan }}
+          plan: ${{ github.event.inputs.plan }}
 
-          env-tst:  ${{ github.event.inputs.apply-env-tst }}
-          env-stg:  ${{ github.event.inputs.apply-env-stg }}
-          env-prd:  ${{ github.event.inputs.apply-env-prd }}
+          env-tst: ${{ github.event.inputs.apply-env-tst }}
+          env-stg: ${{ github.event.inputs.apply-env-stg }}
+          env-prd: ${{ github.event.inputs.apply-env-prd }}
           
           aws-tst-access-key-id: ${{ secrets.AWS_TST_ACCESS_KEY_ID }}
           aws-stg-access-key-id: ${{ secrets.AWS_STG_ACCESS_KEY_ID }}
