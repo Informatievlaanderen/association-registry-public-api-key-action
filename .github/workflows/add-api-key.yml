@@ -44,7 +44,7 @@ jobs:
     - name: Add new client apikey
       uses: informatievlaanderen/association-registry-public-api-key-action/action-add@main
       with:
-          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          repo-token: ${{ secrets.PAT }}
           client:  ${{ github.event.inputs.client }}
           email: ${{ github.event.inputs.email }}
           plan:  ${{ github.event.inputs.plan }}
