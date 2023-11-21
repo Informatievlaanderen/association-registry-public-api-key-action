@@ -74,7 +74,7 @@ def get_client_attribute_updates(env):
         "Plan": {
             "Action": "PUT", 
             "Value": args.plan
-        }
+        },
         "Revoked": {
             "Action": "PUT", 
             "Value": args.revoke_access == 'true'
@@ -82,7 +82,7 @@ def get_client_attribute_updates(env):
         "UsagePlanID": {
             "Action": "PUT", 
             "Value":  usage_plan_ids[args.plan][env]
-        },
+        }
     }
 
 def json_serialize(obj):
