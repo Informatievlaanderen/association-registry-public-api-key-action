@@ -68,6 +68,18 @@ inputs:
     description: 'AWS Region name Production ENV'
     required: false
     default: 'eu-west-1'
+    
+  aws-tst-tenant-id:
+    description: 'AWS Tenant identifier Test ENV'
+    required: true    
+
+  aws-stg-tenant-id:
+    description: 'AWS Tenant identifier Staging ENV'
+    required: true
+
+  aws-prd-tenant-id:
+    description: 'AWS Tenant identifier Production ENV'
+    required: true
 
 runs:
   using: 'docker'
@@ -79,12 +91,15 @@ runs:
     - ${{ inputs.env-tst }}
     - ${{ inputs.env-stg }}
     - ${{ inputs.env-prd }}
+    - ${{ inputs.aws-tst-tenant-id }}
     - ${{ inputs.aws-tst-access-key-id}}
     - ${{ inputs.aws-tst-secret-access-key}}
     - ${{ inputs.aws-tst-region-name}}
+    - ${{ inputs.aws-stg-tenant-id }}
     - ${{ inputs.aws-stg-access-key-id}}
     - ${{ inputs.aws-stg-secret-access-key}}
     - ${{ inputs.aws-stg-region-name}}
+    - ${{ inputs.aws-prd-tenant-id }}
     - ${{ inputs.aws-prd-access-key-id}}
     - ${{ inputs.aws-prd-secret-access-key}}
     - ${{ inputs.aws-prd-region-name}}

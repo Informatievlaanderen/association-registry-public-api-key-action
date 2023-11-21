@@ -55,17 +55,20 @@ jobs:
           env-stg: ${{ github.event.inputs.apply-env-stg }}
           env-prd: ${{ github.event.inputs.apply-env-prd }}
           
+          aws-tst-tenant-id: ${{ secrets.AWS_TST_TENANT_ID }}
           aws-tst-access-key-id: ${{ secrets.AWS_TST_ACCESS_KEY_ID_IK_4 }}
-          aws-stg-access-key-id: ${{ secrets.AWS_TST_ACCESS_KEY_ID_IK_4 }}
-          aws-prd-access-key-id: ${{ secrets.AWS_TST_ACCESS_KEY_ID_IK_4 }}
-
           aws-tst-secret-access-key: ${{ secrets.AWS_TST_SECRET_ACCESS_KEY_IK_4 }}
-          aws-stg-secret-access-key: ${{ secrets.AWS_TST_SECRET_ACCESS_KEY_IK_4 }}
-          aws-prd-secret-access-key: ${{ secrets.AWS_TST_SECRET_ACCESS_KEY_IK_4 }}
-          
           aws-tst-region-name: eu-west-1
-          aws-stg-region-name: eu-west-1
-          aws-prd-region-name: eu-west-1
 
+          aws-stg-tenant-id: ${{ secrets.AWS_STG_TENANT_ID }}
+          aws-stg-access-key-id: ${{ secrets.AWS_STG_ACCESS_KEY_ID_IK_4 }}
+          aws-stg-secret-access-key: ${{ secrets.AWS_STG_SECRET_ACCESS_KEY_IK_4 }}
+          aws-stg-region-name: eu-west-1
+
+          aws-prd-tenant-id: ${{ secrets.AWS_PRD_TENANT_ID }}
+          aws-prd-access-key-id: ${{ secrets.AWS_PRD_ACCESS_KEY_ID_IK_4 }}
+          aws-prd-secret-access-key: ${{ secrets.AWS_PRD_SECRET_ACCESS_KEY_IK_4 }}
+          aws-prd-region-name: eu-west-1          
+          
           revoke-access: ${{ github.event.inputs.revoke-access }}
           
