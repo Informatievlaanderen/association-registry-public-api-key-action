@@ -95,7 +95,7 @@ inputs:
 
 runs:
   using: 'docker'
-  image: 'docker://ghcr.io/informatievlaanderen/association-registry-public-api-key-action:1.0.7-update'
+  image: 'Dockerfile'
   args:
     - ${{ inputs.apikey }}
     - ${{ inputs.client }}
