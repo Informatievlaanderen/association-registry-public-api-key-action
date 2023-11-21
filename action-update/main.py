@@ -73,10 +73,6 @@ def get_client_attribute_updates(env):
             "Action": "PUT", 
             "Value": args.email
         },
-        "WrAccess": {
-            "Action": "PUT", 
-            "Value": args.access_association_registry == 'true'
-        },
         "Revoked": {
             "Action": "PUT", 
             "Value": args.revoke_access == 'true'
@@ -88,10 +84,6 @@ def get_client_attribute_updates(env):
         "Plan": {
             "Action": "PUT", 
             "Value": args.plan
-        },
-        "Tickets": {
-            "Action": "PUT", 
-            "Value": args.access_tickets == 'true'
         }
     }
 

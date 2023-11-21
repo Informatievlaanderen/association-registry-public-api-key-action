@@ -88,4 +88,4 @@ jobs:
           aws-prd-secret-access-key: ${{ secrets.AWS_PRD_SECRET_ACCESS_KEY_IK_4 }}
           aws-prd-region-name: eu-west-1
                     
-          revoke: ${{ github.event.inputs.revoke-access }}
+          revoke-access: ${{ github.event.inputs.revoke-access }}
