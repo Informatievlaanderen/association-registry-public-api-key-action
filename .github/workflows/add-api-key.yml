@@ -69,27 +69,3 @@ jobs:
 
           revoke-access: ${{ github.event.inputs.revoke-access }}
           
-      - name: Add new client apikey
-        uses: ./action-add
-        with:
-          client: ${{ github.event.inputs.client }}
-          email: ${{ github.event.inputs.email }}
-          plan: ${{ github.event.inputs.plan }}
-
-          env-tst: ${{ github.event.inputs.apply-env-tst }}
-          env-stg: ${{ github.event.inputs.apply-env-stg }}
-          env-prd: ${{ github.event.inputs.apply-env-prd }}
-          
-          aws-tst-access-key-id: ${{ secrets.AWS_TST_ACCESS_KEY_ID }}
-          aws-stg-access-key-id: ${{ secrets.AWS_TST_ACCESS_KEY_ID }}
-          aws-prd-access-key-id: ${{ secrets.AWS_TST_ACCESS_KEY_ID }}
-
-          aws-tst-secret-access-key: ${{ secrets.AWS_TST_SECRET_ACCESS_KEY }}
-          aws-stg-secret-access-key: ${{ secrets.AWS_TST_SECRET_ACCESS_KEY }}
-          aws-prd-secret-access-key: ${{ secrets.AWS_TST_SECRET_ACCESS_KEY }}
-          
-          aws-tst-region-name: eu-west-1
-          aws-stg-region-name: eu-west-1
-          aws-prd-region-name: eu-west-1
-
-          revoke-access: ${{ github.event.inputs.revoke-access }}
