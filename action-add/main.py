@@ -37,7 +37,15 @@ usage_plan_ids = {
 }
 
 def start_session(aws_access_key_id, aws_secret_access_key, region_name):
-    return boto3.Session(aws_access_key_id, aws_secret_access_key, region_name=region_name)
+    session = boto3.Session(aws_access_key_id, aws_secret_access_key, region_name=region_name)
+    sts_client = session.client('sts')
+    role_arn = "arn:aws:iam::035686879831:role/verenigingsregisterApiGatewayDynamodbEditorsRole"
+    response = sts_client.assume_role(RoleArn=role_arn, RoleSessionName='AssumeRoleSession')
+    return boto3.Session(
+        aws_access_key_id=response['Credentials']['AccessKeyId'],
+        aws_secret_access_key=response['Credentials']['SecretAccessKey'],
+        aws_session_token=response['Credentials']['SessionToken']
+
 
 
 def get_db_table(session):
