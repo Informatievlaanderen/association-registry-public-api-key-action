@@ -11,9 +11,6 @@ parser.add_argument('-e','--email', help='email', required=True)
 parser.add_argument('--revoke-access', help='revoked', required=False, default='false')
 parser.add_argument('-p','--plan', help='plan options are ["standard"]', required=True, default="standard")
 
-parser.add_argument('--access-sync', help='["true", "false"] default: false', required=False, default='false')
-parser.add_argument('--access-association-registry', help='["true", "false"] default: false', required=False, default='false')
-
 parser.add_argument('--env-tst', help='["true", "false"] default: false', required=False, default='false')
 parser.add_argument('--env-stg', help='["true", "false"] default: false', required=False, default='false')
 parser.add_argument('--env-prd', help='["true", "false"] default: false', required=False, default='false')

@@ -6,16 +6,6 @@ on:
        description: 'Api Key'     
        required: true
 
-      grant-access-association-registry:
-        type: boolean
-        description: 'Grant association-registry access'
-        required: true 
-
-      grant-access-sync:
-        type: boolean
-        description: 'Grant sync access'
-        required: true
-
       revoke-access:
         type: boolean
         description: 'Revoke access'
@@ -63,9 +53,6 @@ jobs:
           client:  ${{ github.event.inputs.client }}
           email: ${{ github.event.inputs.email }}
           plan:  ${{ github.event.inputs.plan }}
-          
-          access-sync:  ${{ github.event.inputs.grant-access-sync }}
-          access-association-registry:  ${{ github.event.inputs.grant-access-association-registry }}
           
           env-tst:  ${{ github.event.inputs.apply-env-tst }}
           env-stg:  ${{ github.event.inputs.apply-env-stg }}

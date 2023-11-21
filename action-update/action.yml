@@ -18,14 +18,6 @@ inputs:
     description: 'options ["unlimited"]'
     required: true
 
-  access-sync:
-    description: 'Grant sync access'
-    required: true
-
-  access-association-registry:
-    description: 'Grant association-registry access'
-    required: true
-
   revoke-access:
     description: 'Revoke access'
     required: false
@@ -101,8 +93,6 @@ runs:
     - ${{ inputs.client }}
     - ${{ inputs.email }}
     - ${{ inputs.plan }}
-    - ${{ inputs.access-sync }}
-    - ${{ inputs.access-association-registry }}
     - ${{ inputs.env-tst }}
     - ${{ inputs.env-stg }}
     - ${{ inputs.env-prd }}
