@@ -41,7 +41,6 @@ def start_session(aws_access_key_id, aws_secret_access_key, region_name):
     sts_client = session.client('sts')
     role_arn = "arn:aws:iam::035686879831:role/verenigingsregisterApiGatewayDynamodbEditorsRole"
     response = sts_client.assume_role(RoleArn=role_arn, RoleSessionName='AssumeRoleSession')
-    print(json_serialize(response))
     return boto3.Session(
         aws_access_key_id=response['Credentials']['AccessKeyId'],
         aws_secret_access_key=response['Credentials']['SecretAccessKey'],
