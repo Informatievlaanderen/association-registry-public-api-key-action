@@ -31,7 +31,7 @@ args = parser.parse_args()
 usage_plan_ids = {
     "unlimited": {
         "tst":"6lxt5edym3",
-        "stg":"",
+        "stg":"acd8bd02-9832-4549-af5e-5f439e06c6db",
         "prd":"",
     }
 }
@@ -65,25 +65,27 @@ def add_apikey(apikey):
     if(apply_in_tst):
         tst_session=start_session(args.aws_tst_access_key_id, args.aws_tst_secret_access_key, args.aws_tst_region_name)
         tst_table = get_db_table(tst_session)
+        print(tst_table)
         tst_item = get_client_api_key(apikey, env='tst')
-        tst_table.put_item(Item=tst_item)
         print(json_serialize(tst_item))
+        tst_table.put_item(Item=tst_item)        
         print("Done in test!")
     
     if(apply_in_stg):
         stg_session=start_session(args.aws_stg_access_key_id, args.aws_stg_secret_access_key, args.aws_stg_region_name)
         stg_table = get_db_table(stg_session)
+        print(stg_table)
         stg_item = get_client_api_key(apikey, env='stg')
-        stg_table.put_item(Item=stg_item)
         print(json_serialize(stg_item))
+        stg_table.put_item(Item=stg_item)
         print("Done in staging!")
     
     if(apply_in_prd):
         prd_session=start_session(args.aws_prd_access_key_id, args.aws_prd_secret_access_key, args.aws_prd_region_name)
         prd_table = get_db_table(prd_session)
         prd_item = get_client_api_key(apikey, env='prd')
-        prd_table.put_item(Item=prd_item)
         print(json_serialize(prd_item))
+        prd_table.put_item(Item=prd_item)
         print("Done in production!")
 
 def main():
