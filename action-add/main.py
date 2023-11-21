@@ -31,7 +31,7 @@ args = parser.parse_args()
 usage_plan_ids = {
     "unlimited": {
         "tst":"6lxt5edym3",
-        "stg":"acd8bd02-9832-4549-af5e-5f439e06c6db",
+        "stg":"tvhp9a",
         "prd":"",
     }
 }
