@@ -34,10 +34,8 @@ on:
         description: 'Plan'
         options:
         - anon
-        - abuse
-        - standard
         - unlimited
-        default: standard
+        default: unlimited
 
       apply-env-tst:
         type: boolean

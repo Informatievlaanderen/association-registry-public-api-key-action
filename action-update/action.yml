@@ -15,7 +15,7 @@ inputs:
     required: true
   
   plan:
-    description: 'options ["standard"]'
+    description: 'options ["unlimited"]'
     required: true
 
   access-sync:

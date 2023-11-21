@@ -19,6 +19,7 @@ on:
         type: choice
         description: 'Plan'
         options:
+          - anon
           - unlimited
         default: unlimited
 

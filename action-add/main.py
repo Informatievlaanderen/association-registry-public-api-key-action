@@ -32,10 +32,15 @@ parser.add_argument('--aws-prd-region-name', required=False, default='eu-west-1'
 args = parser.parse_args()
 
 usage_plan_ids = {
+    "anon": {
+        "tst":"4im4mj",
+        "stg":"ybzchh",
+        "prd":"j1tmtu"
+    },
     "unlimited": {
-        "tst":"6lxt5edym3",
+        "tst":"4ba4z0",
         "stg":"tvhp9a",
-        "prd":"",
+        "prd":"cyb1t3"
     }
 }
 
@@ -56,11 +61,11 @@ def get_db_table(session):
 def get_client_api_key(apikey, env):
     client_api_key = {
             "ApiKey": apikey,
-            "UsagePlanID": usage_plan_ids[args.plan][env],
-            "Description": args.email,
-            "Revoked": args.revoke_access == 'true',
             "ClientName": args.client,
+            "Description": args.email,
             "Plan": args.plan,
+            "Revoked": args.revoke_access == 'true',
+            "UsagePlanID": usage_plan_ids[args.plan][env]
     }
     return client_api_key
 

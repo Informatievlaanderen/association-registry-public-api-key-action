@@ -38,10 +38,15 @@ parser.add_argument('--access-tickets', help='["true", "false"] default: true', 
 args = parser.parse_args()
 
 usage_plan_ids = {
-    "standard": {
-        "tst":"yhlc48",
-        "stg":"oh8xgc",
-        "prd":"m8vqe3",
+    "anon": {
+        "tst":"4im4mj",
+        "stg":"ybzchh",
+        "prd":"j1tmtu"
+    },
+    "unlimited": {
+        "tst":"4ba4z0",
+        "stg":"tvhp9a",
+        "prd":"cyb1t3"
     }
 }
 
@@ -61,30 +66,26 @@ def get_db_table(session):
 
 def get_client_attribute_updates(env):
     return {
-        "SyncAccess": {
+        "ClientName": {
             "Action": "PUT", 
-            "Value": args.access_sync == 'true'
-        },
-        "UsagePlanID": {
-            "Action": "PUT", 
-            "Value":  usage_plan_ids[args.plan][env]
+            "Value": args.client
         },
         "Description": {
             "Action": "PUT", 
             "Value": args.email
         },
-        "Revoked": {
-            "Action": "PUT", 
-            "Value": args.revoke_access == 'true'
-        },
-        "ClientName": {
-            "Action": "PUT", 
-            "Value": args.client
-        },
         "Plan": {
             "Action": "PUT", 
             "Value": args.plan
         }
+        "Revoked": {
+            "Action": "PUT", 
+            "Value": args.revoke_access == 'true'
+        },
+        "UsagePlanID": {
+            "Action": "PUT", 
+            "Value":  usage_plan_ids[args.plan][env]
+        },
     }
 
 def json_serialize(obj):
