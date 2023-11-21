@@ -44,7 +44,7 @@ def start_session(aws_access_key_id, aws_secret_access_key, region_name):
     return boto3.Session(
         aws_access_key_id=response['Credentials']['AccessKeyId'],
         aws_secret_access_key=response['Credentials']['SecretAccessKey'],
-        aws_session_token=response['Credentials']['SessionToken']
+        aws_session_token=response['Credentials']['SessionToken'])
 
 
 
